@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML Lists, Images, Tables & Forms</title>
+    </head>
+    <body>
+        <h1>HTML Lists</h1>
+        <h3>Ordered Lists</h3>
+        <ol type="i" start="i">
+            <li>Software Engineering</li>
+            <li>Web Development</li>
+            <li>Python</li>
+            <li>Database Management</li>
+            <li>Startup Building</li>
+        </ol>
+
+        <h3>Un-ordered Lists</h3>
+        <ul type="circle">
+            <li>Mr. Chakin</li>
+            <li>Ms. Susa</li>
+            <li>Mr. Eddy</li>
+            <li>Mr. Gerald</li>
+            <li>Ms. Nelly</li>
+        </ul>
+
+        <h3>Definition Lists</h3>
+        <dl>
+            <dt>HTML</dt>
+            <dd>Hyper Text Markup Language</dd>
+            <dt>CSS</dt>
+            <dd>Cascading Style Sheets</dd>
+            <dt>JS</dt>
+            <dd>JavaScript</dd>
+            <dt>SQL</dt>
+            <dd>Structured Query Language</dd>
+        </dl>
+
+        <h2>Images</h2>
+        <h3>Internal Images</h1>
+        <img src="../Week 2/analytics.jpg" alt="Data Analytics" width="350" height="350">
+
+        <h3>External Images</h3>
+        <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Data Analytics" width="350" height="350">
+
+         <h1>HTML Tables</h1>
+            <table border="1" width="50%">
+                <caption>PowerLearn Project Africa Instructors</caption>
+                <thead>
+                    <tr>
+                        <!-- <th colspan="2"></th> Use colwhen you want to merge columns i.e colspan="2" merge two columns. -->
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <!-- <td rowspan="2"></td> Use when you want to merge rows i.e rowspan="2" merge two rows. -->
+                        <td>Eddy</td>
+                        <td>eddy@powerlearnprojectafrica.org</td>
+                        <td>Kenya</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nelly</td>
+                        <td>nelly@powerlearnprojectafrica.org</td>
+                        <td>Kenya</td>
+                    </tr>
+
+                    <tr>
+                        <td>Gerald</td>
+                        <td>gerald@powerlearnprojectafrica.org</td>
+                        <td>South Africa</td>
+                    </tr>
+
+                    <tr>
+                        <td>Susan</td>
+                        <td>susan@powerlearnprojectafrica.org</td>
+                        <td>Kenya</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- start of form -->
+            <h1>HTML Forms</h1>
+            <form action="" method="">
+                <label for ="name">Name:</label>
+                <input type="text" id="student_name" name="student_name" placeholder="Enter your full Name" required>
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="johndoe@example.com" required>
+                <br><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Your Password" required>
+                <br><br>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Your Address" required>
+                <br><br>
+
+                <label for="gender">Gender:</label>
+                <input type="radio" id="gender" name="gender" value="female"> Female
+                <input type="radio" id="gender" name="gender" value="Male"> Male
+                <br><br>
+
+                <label for="languages">Languages:</label>
+                <input type="checkbox" id="languages" name="languages" value="english"> English
+                <input type="checkbox" id="languages" name="languages" value="french"> French
+                <input type="checkbox" id="languages" name="languages" value="spanish"> Spanish
+                <input type="checkbox" id="languages" name="languages" value="german"> German
+                <input type="checkbox" id="languages" name="languages" value="swahili"> Swahili
+                <input type="checkbox" id="languages" name="langauges" value="arabic"> Arabic
+                <input type="checkbox" id="languages" name="languages" value="portuguese"> Portuguese
+                <input type="checkbox" id="languages" name="languages" value="chinese"> Chinese
+                <br><br>
+                
+
+                <label for="hobbies">Hobbies:</label>
+                <input type="checkbox" id="hobbies" name="hobbies" value="reading"> Reading
+                <input type="checkbox" id="hobbies" name="hobbies" value="swimming"> Swimming
+                <input type="checkbox" id="hobbies" name="hobbies" value="coding"> Coding
+                <input type="checkbox" id="hobbies" name="hobbies" value="dancing"> Dancing
+                <input type="checkbox" id="hobbies" name="hobbies" value="singing"> Singing
+                <input type="checkbox" id="hobbies" name="hobbies" value="travelling"> Travelling
+                <input type="checkbox" id="hobbies" name="hobbies" value="cooking"> Cooking
+                <input type="checkbox" id="hobbies" name="hobbies" value="gaming"> Gaming
+                <input type="checkbox" id="hobbies" name="hobbies" value="watching movies"> Watching Movies
+                <br><br>
+
+                <label for="country">Country:</label>
+                <select name="country" id="country">
+                    <option>--Select Country--</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="South Sudan">South Sudan</option>
+                </select>
+                <br><br>
+
+                <label for="description">Describe yourself:</label>
+                <textarea id="description" name="description">
+                </textarea>
+                <br><br>
+
+                <button type="register">Register</button>
+                <input type="button" value="Cancel / Reset">
+                <br><br>
+            </form>
+            <!-- end of form -->
+    </body>
+</html>
