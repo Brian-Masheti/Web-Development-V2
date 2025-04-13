@@ -1,0 +1,18 @@
+#google {
+    color: red;
+    text-decoration: none
+    font-weight: bold;
+}
+
+.home-footer {
+    color: chartreuse;
+    font_weight: bold;
+    
+}
+
+body {
+    background-image: url('../Images/img2.jpg'); /* Image location */
+    background-repeat: no-repeat; /* prevents image repeat */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center; /* Center the image */
+}

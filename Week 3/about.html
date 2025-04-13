@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 3. External CSS can be applied to multiple files. Create a separate CSS file and link it to the HTML file(s)-->
+        <!-- <link rel="stylesheet" href="Styles/style.css"> -->
+        <title>Intro to CSS</title>
+        <style>
+            div {
+                border: 3px solid black;
+                padding: 50px;
+            }
+
+            img {
+                margin: 20px 15px 20px 15px; /*Follow the clockwise direction: top, right, bottom, left. Same applies to padding*/
+                margin: 20px 15px; /*top and bottom 20px, left and right 15px*/
+                /* margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+            } */
+        </style>
+
+    </head>
+    <body>
+        <!-- 1. inline CSS -Applies styling directly to the element by adding the style attribute-->
+         <h1>Cascading Stylesheets</h1>
+         <p>This is a paragraph styled with CSS.</p>
+         <a id="google" href ="wwww.google.com">Google</a>
+         <div>
+            <img src="../Week 3/Images/img1.jpg" width="350" height="400" alt="Image 1">
+            <img src="../Week 3/Images/img2.jpg" width="350" height="400" alt="Image 2">
+         </div>
+
+         <footer class="home-footer">
+            &copy; 2025
+         </footer>
+    </body>
+</html>
