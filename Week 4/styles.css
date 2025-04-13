@@ -1,0 +1,40 @@
+.container {
+    width: 80%;
+    /* height: 500px; */
+    margin: 0 auto;
+    background: brown;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}   
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: rgb(228, 39, 203);
+    }
+
+    .container {
+        width: 100%;
+        background-color: aqua;
+    }
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    background-color: lightgreen;
+}
+
+.item {
+    background-color: #ccc;
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+}
