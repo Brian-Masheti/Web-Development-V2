@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>Interactive JavaScript Playground</title>
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header section with a welcoming title -->
+    <header>
+        <h1>Interactive JavaScript Playground</h1>
+        <p>Explore buttons, galleries, tabs, and forms with JavaScript magic!</p>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <!-- Section for event handling demos -->
+        <section id="event-handling">
+            <h2>Event Handling</h2>
+            <!-- Button for click and double-click events -->
+            <button id="action-button">Click or Double-Click Me!</button>
+            <!-- Div for hover effect demonstration -->
+            <div id="hover-box">Hover over me!</div>
+            <!-- Input for keypress detection -->
+            <input type="text" id="keypress-input" placeholder="Type something...">
+        </section>
+
+        <!-- Section for interactive elements -->
+        <section id="interactive-elements">
+            <h2>Interactive Elements</h2>
+            <!-- Button to change text or color -->
+            <button id="change-button">Change Something!</button>
+
+            <!-- Image gallery -->
+            <div id="gallery">
+                <h3>Image Gallery</h3>
+                <!-- Gallery container with images from Pexels.com -->
+                <div class="gallery-container">
+                    <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg" alt="Mountain landscape" class="gallery-image active">
+                    <img src="https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg" alt="Snowy peaks" class="gallery-image">
+                    <img src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" alt="Ocean waves" class="gallery-image">
+                </div>
+                <!-- Navigation buttons for gallery -->
+                <button id="prev-image">Previous</button>
+                <button id="next-image">Next</button>
+            </div>
+
+            <!-- Tabs for content switching -->
+            <div id="tabs">
+                <h3>Content Tabs</h3>
+                <!-- Tab buttons -->
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="tab1">Tab 1</button>
+                    <button class="tab-button" data-tab="tab2">Tab 2</button>
+                    <button class="tab-button" data-tab="tab3">Tab 3</button>
+                </div>
+                <!-- Tab content -->
+                <div id="tab1" class="tab-content active">
+                    <p>This is the content of Tab 1. Click tabs to explore!</p>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <p>Tab 2 has different content. Pretty cool, right?</p>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <p>Tab 3 is the final tab. Enjoy the interactivity!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section for form validation -->
+        <section id="form-validation">
+            <h2>Contact Form</h2>
+            <!-- Form with fields for validation -->
+            <form id="contact-form">
+                <!-- Name input -->
+                <div class="form-group">
+                    <label for="name">Name (required):</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                    <span class="error-message" id="name-error"></span>
+                </div>
+                <!-- Email input -->
+                <div class="form-group">
+                    <label for="email">Email (required):</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                <!-- Password input -->
+                <div class="form-group">
+                    <label for="password">Password (min 8 characters):</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <span class="error-message" id="password-error"></span>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" id="submit-form">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer with credits -->
+    <footer>
+        <p>© 2025 Interactive Playground. Images sourced from <a href="https://www.pexels.com" target="_blank">Pexels.com</a>.</p>
+    </footer>
+
+    <!-- Link to external JavaScript file for interactivity -->
+    <script src="script.js"></script>
+</body>
+</html>
