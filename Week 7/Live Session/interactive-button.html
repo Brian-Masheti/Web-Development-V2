@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #messageArea {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Javascript Basics</h1>
+
+    <button id="changeTextBtn">Click to change text</button>
+
+    <div id="messageArea">Click this button to change ths text.</div>
+
+    <script>
+        const btn = document.getElementById('changeTextBtn');
+        const msgArea = document.getElementById('messageArea');
+
+        btn.addEventListener('click', function() {
+            msgArea.textContent = "Text Changed! JS is working!";
+            
+            msgArea.style.backgroundColor = 'black';
+            msgArea.style.color = 'white';
+            msgArea.style.fontWeight = 'bold';
+        })
+    </script>
+</body>
+</html>

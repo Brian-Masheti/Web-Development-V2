@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Todo List</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          max-width: 500px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        h1 {
+          text-align: center;
+          color: #333;
+        }
+        .todo-container {
+          background-color: #f8f9fa;
+          border-radius: 8px;
+          padding: 20px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .todo-header {
+          display: flex;
+          margin-bottom: 20px;
+        }
+        #todoInput {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+        #addBtn {
+          padding: 10px 15px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          margin-left: 10px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        #addBtn:hover {
+          background-color: #45a049;
+        }
+        .todo-list {
+          list-style-type: none;
+          padding: 0;
+        }
+        .todo-item {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border-bottom: 1px solid #eee;
+        }
+        .todo-item:last-child {
+          border-bottom: none;
+        }
+        .todo-text {
+          flex: 1;
+          margin-left: 10px;
+        }
+        .completed {
+          text-decoration: line-through;
+          color: #888;
+        }
+        .delete-btn {
+          background-color: #f44336;
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .delete-btn:hover {
+          background-color: #d32f2f;
+        }
+        .todo-stats {
+          margin-top: 20px;
+          text-align: right;
+          color: #666;
+        }
+      </style>
+</head>
+<body>
+    <h1>Todo List Application</h1>
+  
+  <div class="todo-container">
+    <div class="todo-header">
+      <input type="text" id="todoInput" placeholder="Add a new task...">
+      <button id="addBtn">Add</button>
+    </div>
+    
+    <ul id="todoList" class="todo-list">
+      <!-- Todo items will be added here -->
+    </ul>
+    
+    <div class="todo-stats">
+      <p id="totalTasks">Total tasks: 0</p>
+      <p id="completedTasks">Completed tasks: 0</p>
+    </div>
+  </div>
+
+  <script>
+    // Get DOM elements
+    const todoInput = document.getElementById('todoInput');
+    const addBtn = document.getElementById('addBtn');
+    const todoList = document.getElementById('todoList');
+    const totalTasksElement = document.getElementById('totalTasks');
+    const completedTasksElement = document.getElementById('completedTasks');
+
+    // initialize todo array
+    let todos = [];
+
+    addBtn.addEventListener('click', addTodo);
+
+    todoInput.addEventListener('keypress', function(e){
+        if(e.key === 'Enter'){
+            addTodo();
+        };
+    });
+
+
+    // Function to add a new todo
+    function addTodo() {
+      const todoText = todoInput.value.trim();
+      
+      if (todoText === '') {
+        alert('Please enter a task');
+        return;
+      }
+      
+      // Create a new todo object
+      const todo = {
+        id: Date.now(), // Use timestamp as unique ID
+        text: todoText,
+        completed: false
+      };
+      
+      // Add to todos array
+      todos.push(todo);
+      
+      // Add to DOM
+      renderTodo(todo);
+      
+      // Clear input
+      todoInput.value = '';
+      
+      // Update stats
+      updateStats();
+    }
+
+    // Function to render a todo item
+    function renderTodo(todo) {
+      // Create new todo item
+      const todoItem = document.createElement('li');
+      todoItem.classList.add('todo-item');
+      todoItem.setAttribute('data-id', todo.id);
+      
+      // Create checkbox
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = todo.completed;
+      checkbox.addEventListener('change', function() {
+        toggleTodoComplete(todo.id);
+      });
+      
+      // Create text span
+      const todoText = document.createElement('span');
+      todoText.classList.add('todo-text');
+      if (todo.completed) {
+        todoText.classList.add('completed');
+      }
+      todoText.textContent = todo.text;
+      
+      // Create delete button
+      const deleteBtn = document.createElement('button');
+      deleteBtn.classList.add('delete-btn');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.addEventListener('click', function() {
+        deleteTodo(todo.id);
+      });
+      
+      // Append elements to todo item
+      todoItem.appendChild(checkbox);
+      todoItem.appendChild(todoText);
+      todoItem.appendChild(deleteBtn);
+      
+      // Append todo item to list
+      todoList.appendChild(todoItem);
+    }
+
+
+    // Function to toggle todo completion status
+    function toggleTodoComplete(id) {
+      // Update in array
+      todos = todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
+      
+      // Update in DOM
+      const todoItem = document.querySelector(`[data-id="${id}"]`);
+      const todoText = todoItem.querySelector('.todo-text');
+      
+      if (todos.find(todo => todo.id === id).completed) {
+        todoText.classList.add('completed');
+      } else {
+        todoText.classList.remove('completed');
+      }
+      
+      // Update stats
+      updateStats();
+    }
+
+
+
+    // Function to delete a todo
+    function deleteTodo(id) {
+      // Remove from array
+      todos = todos.filter(todo => todo.id !== id);
+      
+      // Remove from DOM
+      const todoItem = document.querySelector(`[data-id="${id}"]`);
+      todoList.removeChild(todoItem);
+      
+      // Update stats
+      updateStats();
+    }
+
+
+
+    // Function to update statistics
+    function updateStats() {
+      const totalTasks = todos.length;
+      const completedTasks = todos.filter(todo => todo.completed).length;
+      
+      totalTasksElement.textContent = `Total tasks: ${totalTasks}`;
+      completedTasksElement.textContent = `Completed tasks: ${completedTasks}`;
+    }
+  </script>
+</body>
+</html>

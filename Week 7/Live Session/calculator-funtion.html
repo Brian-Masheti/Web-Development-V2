@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc Function</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        .calculator {
+          border: 1px solid #ccc;
+          padding: 20px;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+        }
+        input, select, button {
+          padding: 8px;
+          margin: 5px;
+          font-size: 16px;
+        }
+        button {
+          cursor: pointer;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+        }
+        #result {
+          margin-top: 15px;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      </style>
+</head>
+<body>
+    <h1>Function Calculator</h1>
+  
+  <div class="calculator">
+    <input type="number" id="num1" placeholder="Enter first number">
+    
+    <select id="operation">
+      <option value="add">+</option>
+      <option value="subtract">-</option>
+      <option value="multiply">*</option>
+      <option value="divide">/</option>
+      <option value="modulus">%</option>
+    </select>
+    
+    <input type="number" id="num2" placeholder="Enter second number">
+    
+    <button id="calculateBtn">Calculate</button>
+    
+    <div id="result">Result will appear here</div>
+  </div>
+
+  <script>
+    // Define calculator functions
+    const calculator = {
+        add: (a, b) => a + b,
+        subtract: (a, b) => a - b,
+        multiply: (a, b) => a * b,
+        divide: (a, b) => b !== 0 ? a / b : "cannot divide by zero",
+        modulus: (a, b) => a % b,
+    };
+
+    const num1Input = document.getElementById('num1');
+    const num2Input = document.getElementById('num2');
+    const operationSelect = document.getElementById('operation');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resultDiv = document.getElementById('result');
+
+    calculateBtn.addEventListener('click', function(){
+        // Get input values
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const operation = operationSelect.value;
+
+        // Validate input
+        if (isNaN(num1) || isNaN(num2)){
+            resultDiv.textContent = "Please enter valid numbers only!"
+        }
+
+        // Perform calculation based on selected operation
+      let result;
+      switch (operation) {
+        case "add":
+          result = calculator.add(num1, num2);
+          break;
+        case "subtract":
+          result = calculator.subtract(num1, num2);
+          break;
+        case "multiply":
+          result = calculator.multiply(num1, num2);
+          break;
+        case "divide":
+          result = calculator.divide(num1, num2);
+          break;
+        case "modulus":
+          result = calculator.modulus(num1, num2);
+          break;
+      }
+
+    //   display results
+
+    resultDiv.textContent = `Answer: ${result}`;
+
+
+    })
+  </script>
+</body>
+</html>
